@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using NLog.Web;
 
 namespace CountryManager
 {
@@ -13,6 +14,8 @@ namespace CountryManager
     {
         public static void Main(string[] args)
         {
+            var logger = NLogBuilder.ConfigureNLog("NLog.config").GetCurrentClassLogger();
+            logger.Debug("Application stars");
             CreateHostBuilder(args).Build().Run();
         }
 
@@ -21,6 +24,11 @@ namespace CountryManager
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
                     webBuilder.UseStartup<Startup>();
-                });
+                })
+            .ConfigureLogging(c => {
+                c.ClearProviders();
+                c.SetMinimumLevel(LogLevel.Trace);
+            })
+            .UseNLog();
     }
 }
