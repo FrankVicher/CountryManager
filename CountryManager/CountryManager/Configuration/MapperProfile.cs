@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 
-namespace CountryManager.Configuration
+namespace CountriesManager.Configuration
 {
     public class MapperProfile:Profile
     {

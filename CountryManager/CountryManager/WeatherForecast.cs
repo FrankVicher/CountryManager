@@ -1,6 +1,6 @@
 using System;
 
-namespace CountryManager
+namespace CountriesManager
 {
     public class WeatherForecast
     {
