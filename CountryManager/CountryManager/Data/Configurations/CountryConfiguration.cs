@@ -40,7 +40,7 @@ namespace CountryManager.Data.Configurations
                 .IsRequired();
             builder.Property(p => p.Updated)
                 .IsRequired();
-
+            
             builder.HasData(new Country[] {
                 new Country{Id=1,Alpha2Code="AF",Alpha3Code="AFG",NumericCode="004",ShortName="Afghanistan",IsIndependent=true},
 new Country{Id=2,Alpha2Code="AL",Alpha3Code="ALB",NumericCode="008",ShortName="Albania",IsIndependent=true},
