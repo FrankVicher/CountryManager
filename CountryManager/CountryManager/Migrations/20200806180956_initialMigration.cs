@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace CountryManager.Migrations
+namespace CountryManager_API.Migrations
 {
     public partial class initialMigration : Migration
     {

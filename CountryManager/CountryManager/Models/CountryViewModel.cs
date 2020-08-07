@@ -1,11 +1,11 @@
-﻿using CountryManager.Domain;
+﻿using CountryManager_API.Domain;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CountryManager.Models
+namespace CountryManager_API.Models
 {
     public class CountryViewModel : ICountry
     {

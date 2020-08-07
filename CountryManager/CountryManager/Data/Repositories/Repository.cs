@@ -4,7 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 
-namespace CountryManager.Data.Repositories
+namespace CountryManager_API.Data.Repositories
 {
     public abstract class Repository<T> where T:class
     {
@@ -38,7 +38,9 @@ namespace CountryManager.Data.Repositories
 
         public IQueryable<T> Seek(Expression<Func<T, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var result = db.Set<T>()
+                .Where(predicate);
+            return result;
         }
 
         public async Task Update(T entity)

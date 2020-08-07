@@ -1,4 +1,4 @@
-﻿using CountryManager.Data.Persistence;
+﻿using CountryManager_API.Data.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System;
@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CountryManager.Data.Configurations
+namespace CountryManager_API.Data.Configurations
 {
     public class CountryConfiguration : IEntityTypeConfiguration<Country>
     {
