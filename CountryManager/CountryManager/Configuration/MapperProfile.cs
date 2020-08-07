@@ -1,12 +1,15 @@
 ﻿using AutoMapper;
+using CountryManager.Data.Persistence;
+using CountryManager.Models;
 
-namespace CountryManager.Configuration
+namespace CountriesManager.Configuration
 {
     public class MapperProfile:Profile
     {
         public MapperProfile()
         {
-
+            CreateMap<Country, CountryViewModel>();
+            CreateMap<CountryViewModel,Country>();
         }
     }
 }
