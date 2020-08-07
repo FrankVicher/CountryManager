@@ -9,6 +9,7 @@ namespace CountryManager_API.Domain
     {
         string Code { get; set; }
         string Name { get; set; }
-        string Category { get; set; }        
+        string Category { get; set; }
+        int CountryId { get; set; }
     }
 }

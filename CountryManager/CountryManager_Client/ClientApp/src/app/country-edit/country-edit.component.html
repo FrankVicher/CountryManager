@@ -1,0 +1,35 @@
+<div>
+  <div>
+    <label>Nombre
+      <input type="text" [(ngModel)]="shortName">
+    </label>
+  </div>
+  <div>
+    <label>Código Alpha 2
+      <input type="text" [(ngModel)]="alpha2Code">
+    </label>
+  </div>
+  <div>
+    <label>Código Alpha 3
+      <input type="text" [(ngModel)]="alpha3Code">
+    </label>
+  </div>
+  <div>
+    <label>Código Numérico
+      <input type="text" [(ngModel)]="numericCode">
+    </label>
+  </div>
+  <div>
+    <label>Es Independiente
+      <input type="checkbox" [(ngModel)]="isIndependent">
+    </label>
+  </div>
+  <div>
+    <input type="hidden" [(ngModel)]="id">
+  </div>
+  <div>
+    <button type="button" (click)="create()">Guardar</button>
+    <button type="button" (click)="cancel()">Cancelar</button>
+  </div>
+</div>
+

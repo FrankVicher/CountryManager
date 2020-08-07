@@ -24,5 +24,12 @@ namespace CountryManager_API.Services
                 .ToList();
             return await Task.FromResult(result);
         }
+
+        internal async Task<List<Subdivision>> GetByCountryId(int countryId)
+        {
+            var result = repository.Seek(s => s.CountryId == countryId)
+                .ToList();
+            return await Task.FromResult(result);
+        }
     }
 }

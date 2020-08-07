@@ -1,0 +1,42 @@
+<div>
+  <label>Id: </label>
+  <label>{{country.id}}</label>
+</div>
+<div><label>Nombre: </label>
+  <label>{{country.shortName}}</label>
+</div>
+<div>
+  <label>Codigo Alpha2: </label>
+  <label>{{country.alpha2Code}}</label>
+</div>
+<div>
+  <label>Codigo Alpha3: </label>
+  <label>{{country.alpha3Code}}</label>
+</div>
+<div>
+  <label>Codigo Numérico: </label>
+  <label>{{country.numericCode}}</label>
+</div>
+<div>
+  <label>Es indepensiente: </label>
+  <label>{{country.isIndependent?'Si':'No'}}</label>
+</div>
+<div>
+  <label>Provincias: </label>
+  <div>
+    <table>
+      <thead>
+        <th>Código</th>
+        <th>Nombre</th>
+        <th>Categoría</th>
+      </thead>
+      <tbody>
+        <tr *ngFor="let s of country.subdivisions">
+          <td>{{s.code}}</td>
+          <td>{{s.name}}</td>
+          <td>{{s.category}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -7,5 +7,6 @@ namespace CountryManager_API.Models
         public string Code { get; set; }
         public string Name { get; set; }
         public string Category { get; set; }
+        public int CountryId { get; set; }
     }
 }

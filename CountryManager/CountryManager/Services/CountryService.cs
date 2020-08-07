@@ -25,10 +25,15 @@ namespace CountryManager_API.Services
 
         internal override async Task Update(Country country)
         {
-            country.Updated = DateTime.Now;
+           
             var oldCountry = await GetById(country.Id);
-            country.Created = oldCountry.Created;
-            await repository.Update(country);            
+            oldCountry.Updated = DateTime.Now;
+            oldCountry.Alpha2Code = country.Alpha2Code;
+            oldCountry.Alpha3Code = country.Alpha3Code;
+            oldCountry.NumericCode = country.NumericCode;
+            oldCountry.ShortName = country.ShortName;
+            oldCountry.IsIndependent = country.IsIndependent;
+            await repository.Update(oldCountry);            
         }
 
         internal override async Task Delete(int id)

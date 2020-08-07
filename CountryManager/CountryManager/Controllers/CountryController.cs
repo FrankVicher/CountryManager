@@ -6,6 +6,7 @@ using AutoMapper;
 using CountryManager_API.Data.Persistence;
 using CountryManager_API.Models;
 using CountryManager_API.Services;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -28,6 +29,7 @@ namespace CountryManager_API.Controllers
             this.logger = logger;
         }
         [HttpGet]
+        
         public async Task<IActionResult> Get()
         {
             var countries = await service.GetAll();

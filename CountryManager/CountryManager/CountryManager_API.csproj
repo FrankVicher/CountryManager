@@ -5,6 +5,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Bussiness\**" />
+    <Content Remove="Bussiness\**" />
+    <EmbeddedResource Remove="Bussiness\**" />
+    <None Remove="Bussiness\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="10.0.0" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.6">
@@ -12,6 +19,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.6">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.0.0" />
     <PackageReference Include="NLog" Version="4.7.3" />
@@ -21,10 +32,6 @@
     <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="5.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="5.2.0" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUi" Version="5.2.0" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Bussiness\" />
   </ItemGroup>
 
 
