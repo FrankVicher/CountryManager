@@ -39,6 +39,13 @@ namespace CountryManager_API.Controllers
             var subdivision = await service.GetById(id);
             return Ok(mapper.Map<SubdivisionModel>(subdivision));
         }
+        [HttpGet]
+        [Route("country/{countryId}")]
+        public async Task<IActionResult> GetByCountryId([FromRoute]int countryId)
+        {
+            var result = await service.GetByCountryId(countryId);
+            return Ok(mapper.Map<List<SubdivisionModel>>(result));
+        }
 
         [HttpGet]
         [Route("seek")]

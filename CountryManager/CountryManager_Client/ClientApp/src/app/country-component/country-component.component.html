@@ -1,0 +1,45 @@
+<div>
+<div>
+  <label>Nombre
+    <input type="text" [(ngModel)]="shortName">
+  </label>
+  <label>Codigo Alpha 2
+    <input type="text" [(ngModel)]="alpha2Code">
+  </label>
+  <div>
+    <button type="button" (click)="filter()">Buscar</button>
+    <button type="button" (click)="restore()">Reestablecer</button>
+  </div>
+</div>
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Codigo alfa 2</th>
+      <th>Codigo alfa 3</th>
+      <th>Codigo númerico</th>
+      <th>Es independiente</th>
+      <th>Ver detalle</th>
+      <th>Editar</th>
+      <th>Eliminar</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let c of filteredCountries">
+      <td>{{c.shortName}}</td>
+      <td>{{c.alpha2Code}}</td>
+      <td>{{c.alpha3Code}}</td>
+      <td>{{c.numericCode}}</td>
+      <td>
+        <input type="checkbox" name="isIndependet" id="" [(checked)]="c.isIndependent">
+      </td>
+      <td>
+        <a [routerLink]="['countryDetail',c.id]">Detalle</a>
+      <td>
+        <a [routerLink]="['countryEdit',c.id]">Editar</a>
+      </td>
+      <td><button type="button" (click)="delete(c)">Eliminar</button></td>
+    </tr>
+  </tbody>
+</table>

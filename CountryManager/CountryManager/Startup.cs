@@ -37,7 +37,9 @@ namespace CountriesManager
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "My API", Version = "v1" });
             });
             services.AddControllers();
-            
+            services.AddCors(c=>
+                c.AddPolicy("AllowOrigin", options =>  options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader().Build())  
+                );
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +49,7 @@ namespace CountriesManager
             {
                 app.UseDeveloperExceptionPage();
             }
-            
+            app.UseCors("AllowOrigin");
             app.UseHttpsRedirection();
 
             app.UseRouting();
@@ -64,6 +66,7 @@ namespace CountriesManager
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
             });
+            
 
         }
     }
