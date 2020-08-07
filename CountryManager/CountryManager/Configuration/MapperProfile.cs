@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
-using CountryManager.Data.Persistence;
-using CountryManager.Models;
+using CountryManager_API.Data.Persistence;
+using CountryManager_API.Models;
 
 namespace CountriesManager.Configuration
 {
@@ -10,6 +10,8 @@ namespace CountriesManager.Configuration
         {
             CreateMap<Country, CountryViewModel>();
             CreateMap<CountryViewModel,Country>();
+            CreateMap<Subdivision, SubdivisionModel>();
+            CreateMap<SubdivisionModel, Subdivision>();
         }
     }
 }

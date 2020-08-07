@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace CountryManager_API.Data.Repositories
 {
-    public class CountryRepository : Repository<Country>
+    public class SubdivisionRepository : Repository<Subdivision>
     {
         private readonly CountriesContext db;
 
-        public CountryRepository(CountriesContext db) : base(db)
+        public SubdivisionRepository(CountriesContext db) : base(db)
         {
             this.db = db;
         }
+
+        
     }
 }

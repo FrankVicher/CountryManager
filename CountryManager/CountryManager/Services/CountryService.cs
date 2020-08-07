@@ -1,46 +1,37 @@
-﻿using CountryManager.Data.Persistence;
-using CountryManager.Data.Repositories;
+﻿using CountryManager_API.Data.Persistence;
+using CountryManager_API.Data.Repositories;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CountryManager.Services
+namespace CountryManager_API.Services
 {
-    public class CountryService
+    public class CountryService:BaseService<CountryRepository,Country>
     {
         private readonly CountryRepository repository;
 
-        public CountryService(CountryRepository repository)
+        public CountryService(CountryRepository repository):base(repository)
         {
             this.repository = repository;
         }
-        internal async Task<List<Country>> GetAll()
-        {
-            var countries = await repository.GetAll();
-            return countries.ToList();
-        }
 
-        internal async Task<Country> GetById(int id)
-        {
-            var country = await repository.GetById(id);
-            return country;
-        }
-
-        internal async Task Create(Country country)
+        internal override async Task Create(Country country)
         {
             country.Created = DateTime.Now;
             country.Updated = DateTime.Now;
             await repository.Create(country);
         }
 
-        internal async Task Update(Country country)
+        internal override async Task Update(Country country)
         {
             country.Updated = DateTime.Now;
+            var oldCountry = await GetById(country.Id);
+            country.Created = oldCountry.Created;
             await repository.Update(country);            
         }
 
-        internal async Task Delete(int id)
+        internal override async Task Delete(int id)
         {
             var entity = await repository.GetById(id);
             entity.IsActive = false;
@@ -49,3 +40,4 @@ namespace CountryManager.Services
         }
     }
 }
+
