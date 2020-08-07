@@ -1,10 +1,10 @@
-﻿using CountryManager.Domain;
+﻿using CountryManager_API.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CountryManager.Data.Persistence
+namespace CountryManager_API.Data.Persistence
 {
     public class Subdivision : ISubdivision
     {

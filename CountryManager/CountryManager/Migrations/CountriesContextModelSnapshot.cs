@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CountryManager.Migrations
+namespace CountryManager_API.Migrations
 {
     [DbContext(typeof(CountriesContext))]
     partial class CountriesContextModelSnapshot : ModelSnapshot

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace CountryManager.Domain
+namespace CountryManager_API.Domain
 {
     public interface ISubdivision
     {

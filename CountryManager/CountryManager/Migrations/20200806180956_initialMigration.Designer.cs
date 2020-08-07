@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace CountryManager.Migrations
+namespace CountryManager_API.Migrations
 {
     [DbContext(typeof(CountriesContext))]
     [Migration("20200806180956_initialMigration")]

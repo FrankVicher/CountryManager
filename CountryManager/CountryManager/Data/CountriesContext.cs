@@ -1,6 +1,6 @@
 ﻿
-using CountryManager.Data.Configurations;
-using CountryManager.Data.Persistence;
+using CountryManager_API.Data.Configurations;
+using CountryManager_API.Data.Persistence;
 using Microsoft.EntityFrameworkCore;
 
 namespace CountriesManager.Data

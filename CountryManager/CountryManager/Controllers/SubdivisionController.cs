@@ -12,16 +12,15 @@ using Microsoft.Extensions.Logging;
 
 namespace CountryManager_API.Controllers
 {
-
     [Route("api/[controller]")]
     [ApiController]
-    public class CountryController : ControllerBase
+    public class SubdivisionController : ControllerBase
     {
-        private readonly CountryService service;
+        private readonly SubdivisionService service;
         private readonly IMapper mapper;
-        private readonly ILogger<CountryController> logger;
+        private readonly ILogger<SubdivisionController> logger;
 
-        public CountryController(CountryService service, IMapper mapper, ILogger<CountryController> logger)
+        public SubdivisionController(SubdivisionService service, IMapper mapper, ILogger<SubdivisionController> logger)
         {
             this.service = service;
             this.mapper = mapper;
@@ -30,32 +29,40 @@ namespace CountryManager_API.Controllers
         [HttpGet]
         public async Task<IActionResult> Get()
         {
-            var countries = await service.GetAll();
-            return Ok(mapper.Map<List<CountryViewModel>>(countries));
+            var subdivisions = await service.GetAll();
+            return Ok(mapper.Map<List<SubdivisionModel>>(subdivisions));
         }
         [HttpGet]
         [Route("{id}")]
         public async Task<IActionResult> Get([FromRoute]int id)
         {
-            var country = await service.GetById(id);
-            return Ok(mapper.Map<CountryViewModel>(country));
+            var subdivision = await service.GetById(id);
+            return Ok(mapper.Map<SubdivisionModel>(subdivision));
+        }
+
+        [HttpGet]
+        [Route("seek")]
+        public async Task<IActionResult> Get([FromQuery]SubdivisionModel filter)
+        {
+            var result = await service.Seek(mapper.Map<Subdivision>(filter));
+            return Ok(mapper.Map<SubdivisionModel>(result));
         }
 
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody]CountryViewModel model)
+        public async Task<IActionResult> Post([FromBody]SubdivisionModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
-            await service.Create(mapper.Map<Country>(model));
+            await service.Create(mapper.Map<Subdivision>(model));
             return Ok();
         }
 
         [HttpPut]
-        public async Task<IActionResult> Put([FromBody]CountryViewModel model)
+        public async Task<IActionResult> Put([FromBody]SubdivisionModel model)
         {
             if (!ModelState.IsValid)
                 return BadRequest();
-            await service.Update(mapper.Map<Country>(model));
+            await service.Update(mapper.Map<Subdivision>(model));
             return Ok();
         }
 
@@ -72,13 +79,13 @@ namespace CountryManager_API.Controllers
                 await service.Delete(id);
                 return Ok();
             }
-            catch(Exception x)
+            catch (Exception x)
             {
                 var msg = x.InnerException?.Message ?? x.Message;
                 logger.LogError(msg, "Error al borrar la entidad", $"Id: {id}");
                 return ValidationProblem();
             }
-            
+
         }
     }
 }

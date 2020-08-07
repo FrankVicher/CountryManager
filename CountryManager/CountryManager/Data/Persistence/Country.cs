@@ -1,8 +1,8 @@
-﻿using CountryManager.Domain;
+﻿using CountryManager_API.Domain;
 using System;
 using System.Collections.Generic;
 
-namespace CountryManager.Data.Persistence
+namespace CountryManager_API.Data.Persistence
 {
     public class Country : ICountry
     {
