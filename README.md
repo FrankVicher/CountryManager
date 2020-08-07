@@ -8,6 +8,12 @@ Para construir la aplicación se debe abrir una consola de comandos en la carpet
 ```
 dotnet build
 ```
+posteriormente se debe actualizar la base de datos, para lo cual es necesario un servidor SQL Server con una instancia local y ejecutar el comando
+```
+dotnet ef database update
+```
+esto creará la base de datos y poblara las tablas.
+
 Para ejecutar la aplicación de debe ejecutae el comando
 ```
 dotnet run
