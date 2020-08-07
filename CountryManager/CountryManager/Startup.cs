@@ -1,6 +1,8 @@
 using AutoMapper;
 using CountriesManager.Configuration;
 using CountriesManager.Data;
+using CountryManager.Data.Repositories;
+using CountryManager.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -23,6 +25,8 @@ namespace CountriesManager
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddTransient<CountryService>();
+            services.AddTransient<CountryRepository>();
             services.AddAutoMapper(typeof(MapperProfile));
             services.AddDbContext<CountriesContext>(o=>o.UseSqlServer(this.Configuration.GetConnectionString("CountriesManager")));
             services.AddSwaggerGen(c =>

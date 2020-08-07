@@ -25,14 +25,15 @@ namespace CountryManager.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public IQueryable<T> GetAll()
+        public async Task<IQueryable<T>> GetAll()
         {
-            throw new NotImplementedException();
+            return await Task.FromResult(db.Set<T>().AsQueryable());
         }
 
-        public T GetById(int id)
+        public async Task<T> GetById(int id)
         {
-            throw new NotImplementedException();
+            var result = db.Set<T>().Find(id);
+            return await Task.FromResult(result);
         }
 
         public IQueryable<T> Seek(Expression<Func<T, bool>> predicate)
@@ -40,9 +41,10 @@ namespace CountryManager.Data.Repositories
             throw new NotImplementedException();
         }
 
-        public void Update(T entity)
+        public async Task Update(T entity)
         {
-            throw new NotImplementedException();
+            db.Set<T>().Update(entity);
+            await db.SaveChangesAsync();
         }
     }
 }

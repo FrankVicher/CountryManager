@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using CountryManager.Data.Persistence;
+using CountryManager.Models;
 
 namespace CountriesManager.Configuration
 {
@@ -6,7 +8,8 @@ namespace CountriesManager.Configuration
     {
         public MapperProfile()
         {
-
+            CreateMap<Country, CountryViewModel>();
+            CreateMap<CountryViewModel,Country>();
         }
     }
 }
